@@ -1,25 +1,8 @@
 import { CalendarWrapper } from "@/components/CalendarWrapper"
-import prisma from "@/lib/prisma"
-import { Event } from "@prisma/client"
-import { GetStaticProps } from "next"
 import Head from "next/head"
 import "react-big-calendar/lib/css/react-big-calendar.css"
 
-export const getStaticProps: GetStaticProps = async () => {
-  const events = await prisma.event.findMany()
-  return {
-    props: {
-      // Using JSON parse and stringify to create a serializable object.
-      events: JSON.parse(JSON.stringify(events)),
-    },
-  }
-}
-
-type Props = {
-  events: Event[]
-}
-
-export default function Home({ events }: Props) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -30,7 +13,7 @@ export default function Home({ events }: Props) {
       </Head>
       <main>
         <div style={{ height: "100vh" }}>
-          <CalendarWrapper events={events} />
+          <CalendarWrapper />
         </div>
       </main>
     </>

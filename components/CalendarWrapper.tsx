@@ -2,7 +2,6 @@ import { dayjsLocalizer, Calendar, SlotInfo } from "react-big-calendar"
 import dayjs from "dayjs"
 import { Event } from "@prisma/client"
 import { useEffect, useMemo, useState } from "react"
-import { EventDetailsModal } from "./EventDetailsModal"
 import { CreateEventModal } from "./CreateEventModal"
 import { Row, Spin } from "antd"
 import useSWR from "swr"
@@ -75,11 +74,6 @@ export const CalendarWrapper = () => {
           margin: "auto",
           marginTop: 24,
         }}
-      />
-      <EventDetailsModal
-        event={selectedEventId ? eventMap[selectedEventId] : null}
-        open={!!selectedEventId}
-        handleCancel={() => setSelectedEventId(null)}
       />
       <EditEventModal
         event={selectedEventId ? eventMap[selectedEventId] : null}

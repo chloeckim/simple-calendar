@@ -18,10 +18,6 @@ export const EditEventModal = ({ event, open, handleCancel }: IProps) => {
   const [saving, setSaving] = useState<boolean>(false)
 
   useEffect(() => {
-    console.log(form.getFieldsValue())
-  }, [form])
-
-  useEffect(() => {
     form.setFieldsValue(getInitialValues())
   }, [event])
 

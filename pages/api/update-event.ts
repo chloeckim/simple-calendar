@@ -6,7 +6,6 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log(req.body)
   // For now, only allow put event.
   if (req.method !== "PUT") {
     res.status(405).json({ message: "Method not allowed" })

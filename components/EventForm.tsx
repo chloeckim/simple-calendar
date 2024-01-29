@@ -27,7 +27,7 @@ export const EventForm = ({ form, initialValues, handleOnFinish }: IProps) => {
 
   if (error) {
     return (
-      <Row justify="center" align="middle" style={{ height: "100vh" }}>
+      <Row justify="center" align="middle">
         <p>There was an error fetching clients</p>
       </Row>
     )
@@ -35,7 +35,7 @@ export const EventForm = ({ form, initialValues, handleOnFinish }: IProps) => {
 
   if (isLoading) {
     return (
-      <Row justify="center" align="middle" style={{ height: "100vh" }}>
+      <Row justify="center" align="middle">
         <Spin size="large" />
       </Row>
     )

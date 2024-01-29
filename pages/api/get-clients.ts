@@ -10,6 +10,6 @@ export default async function handle(
     res.status(405).json({ message: "Method not allowed" })
     return
   }
-  const events = await prisma.event.findMany()
-  res.json(JSON.stringify(events))
+  const clients = await prisma.client.findMany()
+  res.json(JSON.stringify(clients))
 }

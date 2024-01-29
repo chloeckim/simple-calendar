@@ -18,4 +18,16 @@ model Event {
   description String?
   start       DateTime
   end         DateTime
+  clientId    String?
+  client      Client?  @relation(fields: [clientId], references: [id])
+}
+
+model Client {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  email     String
+
+  events Event[]
 }

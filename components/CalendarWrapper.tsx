@@ -6,6 +6,7 @@ import { EventDetailsModal } from "./EventDetailsModal"
 import { CreateEventModal } from "./CreateEventModal"
 import { Row, Spin } from "antd"
 import useSWR from "swr"
+import { EditEventModal } from "./EditEventModal"
 
 const localizer = dayjsLocalizer(dayjs)
 
@@ -76,6 +77,11 @@ export const CalendarWrapper = () => {
         }}
       />
       <EventDetailsModal
+        event={selectedEventId ? eventMap[selectedEventId] : null}
+        open={!!selectedEventId}
+        handleCancel={() => setSelectedEventId(null)}
+      />
+      <EditEventModal
         event={selectedEventId ? eventMap[selectedEventId] : null}
         open={!!selectedEventId}
         handleCancel={() => setSelectedEventId(null)}
